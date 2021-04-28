@@ -15,18 +15,16 @@ const { Router } = require("express");
 app.use(cors());
 app.options("*", cors());
 
+require("./routes/user.routes")(app);
+
 app.get("/", (req, res) => {
   res.send({ message: "Welcome to  application." });
 });
-
-require("./routes/user.routes")(app);
-
-app.use("/.netlify/functions/api", router);
 
 db.authenticate()
   .then(() => console.log("Database connected"))
   .catch((err) => console.log("Error: " + err));
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Listening on: http://localhost:${port}`);
 });
