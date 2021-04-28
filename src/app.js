@@ -1,7 +1,7 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
-const db = require("./dbconfig/db");
+// const db = require("./dbconfig/db");
 const router = express.Router();
 
 const port = 8080;
@@ -21,9 +21,9 @@ app.get("/", (req, res) => {
   res.send({ message: "Welcome to  application." });
 });
 
-db.authenticate()
-  .then(() => console.log("Database connected"))
-  .catch((err) => console.log("Error: " + err));
+// db.authenticate()
+//   .then(() => console.log("Database connected"))
+//   .catch((err) => console.log("Error: " + err));
 
 app.listen(process.env.PORT || port, () => {
   console.log(`Listening on: http://localhost:${port}`);

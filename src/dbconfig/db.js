@@ -16,6 +16,7 @@ module.exports = new Sequelize(
     define: {
       timestamps: false,
     },
+    ssl: true,
   }
 );
 
